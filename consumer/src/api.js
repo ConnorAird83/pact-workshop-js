@@ -15,6 +15,10 @@ export class API {
         this.url = url
     }
 
+    generateAuthToken() {
+        return "Bearer " + new Date().toISOString()
+    }
+
     withPath(path) {
         if (!path.startsWith("/")) {
             path = "/" + path
@@ -23,12 +27,20 @@ export class API {
     }
 
     async getAllProducts() {
-        return axios.get(this.withPath("/products"))
+        return axios.get(this.withPath("/products"), {
+            headers: {
+                "Authorization": this.generateAuthToken()
+            }
+        })
             .then(r => r.data);
     }
 
     async getProduct(id) {
-        return axios.get(this.withPath("/products/" + id))
+        return axios.get(this.withPath("/products/" + id), {
+            headers: {
+                "Authorization": this.generateAuthToken()
+            }
+        })
             .then(r => r.data);
     }
 }
