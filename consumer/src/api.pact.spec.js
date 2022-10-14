@@ -119,7 +119,7 @@ describe("API Pact test", () => {
         uponReceiving: "get product with ID 10",
         withRequest: {
           method: "GET",
-          path: "/product/10",
+          path: "/products/10",
           headers: {
             Authorization: like("Bearer 2019-01-14T11:34:18.045Z"),
           },
@@ -158,7 +158,7 @@ describe("API Pact test", () => {
         uponReceiving: "get product with ID 11",
         withRequest: {
           method: "GET",
-          path: "/product/11",
+          path: "/products/11",
           headers: {
             Authorization: like("Bearer 2019-01-14T11:34:18.045Z"),
           },
@@ -185,7 +185,7 @@ describe("API Pact test", () => {
         uponReceiving: "get product by ID 10 with no auth token",
         withRequest: {
           method: "GET",
-          path: "/product/10",
+          path: "/products/10",
         },
         willRespondWith: {
           status: 401,
